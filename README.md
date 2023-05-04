@@ -1,14 +1,48 @@
-# highlight.dart
+# flutter_highlight
 
-Syntax highlighting for Dart and Flutter, which supports lots of languages and themes.
+[![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight)
 
-[View gallery built with Flutter web](https://git-touch.github.io/highlight/)
+Syntax highlighter for Flutter. https://git-touch.github.io/highlight/
 
-| Package | Version | Description |
-| --- | --- | --- |
-| [highlight](https://github.com/pd4d10/highlight/tree/master/highlight) | [![pub](https://img.shields.io/pub/v/highlight)](https://pub.dev/packages/highlight) | Core syntax highlighting library written in Dart |
-| [flutter_highlight](https://github.com/pd4d10/highlight/tree/master/flutter_highlight) | [![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight) | Flutter syntax highlighting widget |
-|  |
+## Usage
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/themes/github.dart';
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var code = '''main() {
+  print("Hello, World!");
+}
+''';
+
+    return HighlightView(
+      // The original code to be highlighted
+      code,
+
+      // Specify language
+      // It is recommended to give it a value for performance
+      language: 'dart',
+
+      // Specify highlight theme
+      // All available themes are listed in `themes` folder
+      theme: githubTheme,
+
+      // Specify padding
+      padding: EdgeInsets.all(12),
+
+      // Specify text style
+      textStyle: TextStyle(
+        fontFamily: 'My awesome monospace font',
+        fontSize: 16,
+      ),
+    );
+  }
+}
+```
 
 ## References
 
